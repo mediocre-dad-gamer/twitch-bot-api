@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  twitch-bot-api:
+    container_name: twitch-bot-api
+    image: twitch-bot-api
+    build: .    
+    networks:
+        twitch_net:
+            aliases: 
+                - twitch-bot-api
+    ports: 
+        - "8001:80"
+networks:
+    twitch_net:
+        name: twitch_net
+        driver: bridge
